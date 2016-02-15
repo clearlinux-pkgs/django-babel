@@ -4,7 +4,7 @@
 #
 Name     : django-babel
 Version  : 0.4.0
-Release  : 2
+Release  : 3
 URL      : https://pypi.python.org/packages/source/d/django-babel/django-babel-0.4.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/d/django-babel/django-babel-0.4.0.tar.gz
 Summary  : Utilities for using Babel in Django
