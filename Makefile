@@ -1,5 +1,5 @@
 PKG_NAME := django-babel
-URL := https://pypi.python.org/packages/source/d/django-babel/django-babel-0.5.1.tar.gz
-ARCHIVES :=
+URL := https://pypi.debian.net/django-babel/django-babel-0.6.0.tar.gz
+
 
 include ../common/Makefile.common
