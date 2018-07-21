@@ -4,19 +4,21 @@
 #
 Name     : django-babel
 Version  : 0.6.1
-Release  : 15
+Release  : 16
 URL      : https://pypi.debian.net/django-babel/django-babel-0.6.1.tar.gz
 Source0  : https://pypi.debian.net/django-babel/django-babel-0.6.1.tar.gz
 Summary  : Utilities for using Babel in Django
 Group    : Development/Tools
 License  : BSD-3-Clause
+Requires: django-babel-python3
+Requires: django-babel-license
 Requires: django-babel-python
 Requires: Babel
 BuildRequires : Babel
 BuildRequires : Django
+BuildRequires : buildreq-distutils3
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
@@ -25,12 +27,30 @@ BuildRequires : setuptools
         
         This package contains various utilities for integration of `Babel`_ into the
 
+%package license
+Summary: license components for the django-babel package.
+Group: Default
+
+%description license
+license components for the django-babel package.
+
+
 %package python
 Summary: python components for the django-babel package.
 Group: Default
+Requires: django-babel-python3
 
 %description python
 python components for the django-babel package.
+
+
+%package python3
+Summary: python3 components for the django-babel package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the django-babel package.
 
 
 %prep
@@ -41,15 +61,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1500565803
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1532217485
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1500565803
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/doc/django-babel
+cp COPYING %{buildroot}/usr/share/doc/django-babel/COPYING
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -57,7 +76,13 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/django-babel/COPYING
+
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
