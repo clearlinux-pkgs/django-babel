@@ -4,7 +4,7 @@
 #
 Name     : django-babel
 Version  : 0.6.2
-Release  : 17
+Release  : 18
 URL      : https://files.pythonhosted.org/packages/87/e2/a009668c03148a62bc1d9cb6a30769de1eeab12e70824b609d5b405b5f6e/django-babel-0.6.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/87/e2/a009668c03148a62bc1d9cb6a30769de1eeab12e70824b609d5b405b5f6e/django-babel-0.6.2.tar.gz
 Summary  : Utilities for using Babel in Django
@@ -61,7 +61,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532325303
+export SOURCE_DATE_EPOCH=1532325374
 python3 setup.py build -b py3
 
 %install
